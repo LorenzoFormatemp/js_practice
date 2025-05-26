@@ -36,7 +36,7 @@
             } 
         }
 
-
+        // 2- mostro i task
         function displayTask(){
             const list = document.querySelector('#taskList');
             //svuoto l'html
@@ -58,9 +58,17 @@
 
         }
 
+        // 3- elimino il task
+        function deleteTask(index){
+            tasks.splice(index, 1);
+            displayTask();
+        }
 
 
-
+        /* 
+            modifica del task
+        
+        */
     </script>
 
 
