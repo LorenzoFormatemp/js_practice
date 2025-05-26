@@ -41,3 +41,6 @@ function checkValidNumber(n1, n2){
     }
     return true;
 }
+
+
+//function checkInput(...args){} => rest parameters
