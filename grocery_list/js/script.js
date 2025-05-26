@@ -7,18 +7,21 @@
 const items = []; // ad esempio dati da un servizio esterno
 
 // 1- aggiungere gli elementi alla lista
-function addItem(){
+function addItem(){  // create
     //prendere il valore dell'input
     const item = document.querySelector('#itemInput').value;
     // se item esiste
     if(item){
       items.push(item); // metto il nuovo elemento in fondo all'array
       displayList();
+
+      /* pulire l'input dopo che ho aggiunto l'elemento */
+      document.getElementById("itemInput").value = "";
     }
 }
 
 // 2- mostrare la lista
-function displayList(){
+function displayList(){ // read
     // seleziono il tag lista dove appenderò i miei items
     const list = document.getElementById('list');
 
@@ -36,4 +39,9 @@ function displayList(){
         //appendo il mio tag li alla lista a cui appartiene
         list.append(li);
     }
+}
+
+function clearList(){ // delete
+    items.length = 0;
+    displayList();
 }
