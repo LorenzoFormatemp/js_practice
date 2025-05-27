@@ -6,7 +6,7 @@ const form = document.getElementById('regForm');
 
 form.addEventListener("submit", function(e){
 
-    e.preventDefault();
+    e.preventDefault(); // vado a prevenire il comportamento che avrebbe di default il form
 
     // prendo i dati
     const name = document.getElementById('name').value.trim();
@@ -15,21 +15,30 @@ form.addEventListener("submit", function(e){
     const confirm = document.getElementById('confirm').value;
     const feedback = document.getElementById('feedback');
 
-    // dati obbligatori
+    // 1. dati obbligatori
     if(!name || !email || !password || !confirm){
         feedback.innerHTML = `<div class="alert alert-danger">All fields are required!</div>`
         return;
     }
 
-    /* se la email è effetivamente una mail */
+    /* 2. se la email è effettivamente una mail */
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)){
+        feedback.innerHTML = `<div class="alert alert-danger">Invalid email format.</div>`
+        return;
+    }
 
-    /* se la password rispetta x caratteristiche => lunghezza minima 10 caratteri */
+    /* 3. se la password rispetta x caratteristiche => lunghezza minima 10 caratteri */
+    if(password < 10){
+        feedback.innerHTML = `<div class="alert alert-warning">Password must be at least 10 characters</div>`
+        return;
+    }
 
-    /* se le password sono uguali */
+    /* 4. se le password sono uguali */
+    if(password !== confirm){
+        feedback.innerHTML = `<div class="alert alert-danger">Passwords must match!</div>`;
+        return;
+    }
 
-
-    // se i test vengono passati => allora sei registrato
-
-
-
+    feedback.innerHTML = `<div class="alert alert-success">Registration successful!</div>`
 });
