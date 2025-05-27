@@ -42,3 +42,39 @@ form.addEventListener("submit", function(e){
 
     feedback.innerHTML = `<div class="alert alert-success">Registration successful!</div>`
 });
+
+
+const data = [
+    {
+        name: 'Lorenzo',
+        email: 'fasa',
+        provincia : null
+    },
+    {
+        name: null,
+        email: 'fasfas',
+        provincia: 'Milano'
+    }
+]
+
+const users = [];
+
+data.forEach((single_obj, index) => {
+
+    // null 
+    const user = {
+        'name' : single_obj.name ? single_obj.name.trim() : '',
+        'provincia': single_obj.provincia ? single_obj.provincia : '',
+        'email': single_obj.email ? single_obj.email : '',
+    }
+
+    users.push(user);
+});
+
+
+function controls (input){
+    // case null
+    // case vuoto
+    // case undefined
+    // case 
+}
