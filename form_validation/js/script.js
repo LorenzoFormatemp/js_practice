@@ -21,5 +21,15 @@ form.addEventListener("submit", function(e){
         return;
     }
 
+    /* se la email è effetivamente una mail */
+
+    /* se la password rispetta x caratteristiche => lunghezza minima 10 caratteri */
+
+    /* se le password sono uguali */
+
+
+    // se i test vengono passati => allora sei registrato
+
+
 
 });
